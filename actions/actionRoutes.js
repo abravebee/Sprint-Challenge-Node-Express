@@ -3,7 +3,6 @@ const actionDb = require('../data/helpers/actionModel.js');
 
 const router = express.Router();
 
-
 router.get('/', (req, res) => {
   actionDb.get()
     .then(actions => {
