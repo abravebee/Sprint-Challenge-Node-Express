@@ -32,7 +32,6 @@ router.get('/:id', (req, res) => {
 
 
 router.post('/', (req, res) => {
-  console.log("req", req.body)
   if(!req.body.project_id) {
       res.status(400).json({ error: "Please provide a project_id for this action." })
   } else if (!req.body.description) {
@@ -54,21 +53,25 @@ router.post('/', (req, res) => {
   }
 });
 
-/*
+
 router.put('/:id', (req, res) => {
   const { id } = req.params;
-  if (!req.body.userId) {
-    res.status(400).json({ error: "Please enter a userId." })
-  } else if (!req.body.text) {
-    res.status(400).json({ error: "Please enter some text." })
+  if(!req.body.project_id) {
+    res.status(400).json({ error: "Please provide a project_id for this action." })
+  } else if (!req.body.description) {
+    return res.status(400).json({ error: "Please enter a description for this action." })
+  } else if (req.body.description.length > 128) {
+    return res.status(400).json({ error: "Please use fewer than 128 characters in your description." })
+  } else if (!req.body.notes) {
+    return res.status(400).json({ error: "Please enter some notes for this action." })
   } else {
     actionDb
     .update(id, req.body)
     .then(response => {
-      if (response === 0) {
+      if (response === null) {
         res.status(404).json({ error: "There is no action with that id."})
       }
-      if (response === 1) {
+      else {
         console.log("\n=== ACTION UPDATED ==\n", response, req.body)
         res.status(200).json(response)
       }
@@ -79,6 +82,7 @@ router.put('/:id', (req, res) => {
     })  
   }
 })
+
 
 router.delete('/:id', (req, res) => {
   const id = req.params.id
@@ -97,6 +101,6 @@ router.delete('/:id', (req, res) => {
       res.status(500).json({error: "There was an error while deleting this action."})
     })
 })
-*/
+
 
 module.exports = router;
