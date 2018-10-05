@@ -1,0 +1,24 @@
+{
+  "name": "sprint-challenge-node-express",
+  "version": "1.0.0",
+  "description": "- Please open the `Review.md` file and answer the questions.\r - Use Node.js and Express to design and build an API that performs CRUD operations on **projects** and **actions**.",
+  "main": "knexfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abravebee/Sprint-Challenge-Node-Express.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abravebee/Sprint-Challenge-Node-Express/issues"
+  },
+  "homepage": "https://github.com/abravebee/Sprint-Challenge-Node-Express#readme",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "helmet": "^3.13.0",
+    "morgan": "^1.9.1"
+  }
+}
