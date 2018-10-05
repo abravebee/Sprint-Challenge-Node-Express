@@ -5,7 +5,7 @@ const helmet = require('helmet');
 const port = 8000;
 
 const projectRoutes = require ('./projects/projectRoutes.js')
-// const actionRoutes = require('./actions/actionRoutes.js')
+const actionRoutes = require('./actions/actionRoutes.js')
 const server = express();
 
 server.use(express.json());
@@ -19,6 +19,7 @@ server.get('/', (req, res) => {
 })
 
 server.use('/api/projects', projectRoutes);
+server.use('/api/actions', actionRoutes)
 
 server.listen(port, () =>
 console.log(`\n=== I am running the API on port ${port} ===\n`))
